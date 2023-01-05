@@ -15,7 +15,7 @@
                 <a class="nav-link active" href="#siteArea">网站配置</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#bloggerArea">博主信息</a>
+                <a class="nav-link" href="#bloggerArea">教师信息</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#postArea">文章配置</a>
@@ -35,25 +35,25 @@
                             <form class="js-validation-be-contact" id="siteForm" method="post">
                                 <div class="form-group row">
                                     <div class="col-12">
-                                        <label for="blog_name">博客名称</label>
+                                        <label for="blog_name">系统名称</label>
                                         <input class="form-control form-control-lg" id="blog_name" name="blog_name" type="text"  th:value="${configMap['blog_name']}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-12">
-                                        <label for="home_page">博客首页</label>
+                                        <label for="home_page">系统首页</label>
                                         <input class="form-control form-control-lg" id="home_page" name="home_page" type="text" th:value="${configMap['home_page']}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-12">
-                                        <label for="description">博客描述</label>
+                                        <label for="description">系统描述</label>
                                         <input class="form-control form-control-lg" id="description" name="description" type="text" th:value="${configMap['description']}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-12">
-                                        <label for="keywords">博客关键字</label>
+                                        <label for="keywords">系统关键字</label>
                                         <input class="form-control form-control-lg" id="keywords" name="keywords" type="text"  th:value="${configMap['keywords']}">
                                     </div>
                                 </div>
@@ -106,7 +106,7 @@
                             <form class="js-validation-be-contact" id="bloggerForm" method="post">
                                 <div class="form-group row">
                                     <div class="col-12">
-                                        <label for="blog_author" title="如若修改，请在个人详情页操作"><i class="fa fa-info-circle"></i> 博主名称</label>
+                                        <label for="blog_author" title="如若修改，请在个人详情页操作"><i class="fa fa-info-circle"></i> 教师名称</label>
                                         <input class="form-control form-control-lg" id="blog_author" name="blog_author" type="text" th:value="${configMap['blog_author']}" disabled>
                                     </div>
                                 </div>
