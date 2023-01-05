@@ -65,7 +65,7 @@
             htmArr.push('<div class="option-item '+ ele.class +'" title="'+ele.title+'"> <i class="' + ele.icon+'"></i> </div> ');
         }
 
-        htmArr.push('<div class="option-item scroll-progress" title="滚动条进度"><span id="progress-line" class="progress-line"></span><span id="progress-value">0%</span></div> ');
+        //htmArr.push('<div class="option-item scroll-progress" title="滚动条进度"><span id="progress-line" class="progress-line"></span><span id="progress-value">0%</span></div> ');
         $options.append(htmArr.join(""));
 
         let $iframe = $('<div id="modal-iframe" class="iziModal light"></div>');
@@ -293,28 +293,28 @@
     };
 
     //定义计算滚动进度的函数
-    const scrollIndicator = function () {
-        let $window = $(window);
-        let $progressLine = $("#progress-line");
-        let $progressValue = $("#progress-value");
-        let winTop = $window.scrollTop(), docHeight = $(document).height(), winHeight = $(window).height();
-        calcProcess(winTop, docHeight, winHeight, $progressLine, $progressValue);
-
-        $window.on('scroll', function() {
-            let winTop = $window.scrollTop(), docHeight = $(document).height(), winHeight = $(window).height();
-            calcProcess(winTop, docHeight, winHeight, $progressLine, $progressValue);
-        });
-    };
-    function calcProcess(winTop, docHeight, winHeight, progressLine, progressValue) {
-        let scrolled;
-        let denominator = docHeight - winHeight;
-        if (denominator > 0) {
-            scrolled =  (winTop / denominator) * 100;
-        } else {
-            scrolled = 100;
-        }
-        progressValue.html(parseInt(scrolled + "") + '%');
-    }
+    // const scrollIndicator = function () {
+    //     let $window = $(window);
+    //     let $progressLine = $("#progress-line");
+    //     let $progressValue = $("#progress-value");
+    //     let winTop = $window.scrollTop(), docHeight = $(document).height(), winHeight = $(window).height();
+    //     calcProcess(winTop, docHeight, winHeight, $progressLine, $progressValue);
+    //
+    //     $window.on('scroll', function() {
+    //         let winTop = $window.scrollTop(), docHeight = $(document).height(), winHeight = $(window).height();
+    //         calcProcess(winTop, docHeight, winHeight, $progressLine, $progressValue);
+    //     });
+    // };
+    // function calcProcess(winTop, docHeight, winHeight, progressLine, progressValue) {
+    //     let scrolled;
+    //     let denominator = docHeight - winHeight;
+    //     if (denominator > 0) {
+    //         scrolled =  (winTop / denominator) * 100;
+    //     } else {
+    //         scrolled = 100;
+    //     }
+    //     progressValue.html(parseInt(scrolled + "") + '%');
+    // }
 
     const pjaxEvent = function() {
         $(document).pjax('a[data-pjax]', '#wrap', {fragment: '#wrap', timeout: 8000});
@@ -322,7 +322,7 @@
         $(document).on('pjax:complete',   function(e) {
 
             //添加的代码
-            scrollIndicator();
+            //scrollIndicator();
             circleMagic();
             contentWayPoint();
             dynamicEvent();
@@ -338,7 +338,7 @@
     };
 
     $(function() {
-        scrollIndicator();
+        //scrollIndicator();
         themModeEvent();
         optionEvent();
         circleMagic();

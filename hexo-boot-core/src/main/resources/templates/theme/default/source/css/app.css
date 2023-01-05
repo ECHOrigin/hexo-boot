@@ -2490,14 +2490,14 @@ html[mode=dark] .hb-r-body .hb-r-pagination ul li {
     background: var(--theme-color);
 }
 
-.options .scroll-progress {
-    position: relative;
-}
+/*.options .scroll-progress {*/
+/*    position: relative;*/
+/*}*/
 
-.options .scroll-progress .progress-line {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 2px;
-    background: var(--theme-color);
-}
+/*.options .scroll-progress .progress-line {*/
+/*    position: absolute;*/
+/*    left: 0;*/
+/*    bottom: 0;*/
+/*    height: 2px;*/
+/*    background: var(--theme-color);*/
+/*}*/
