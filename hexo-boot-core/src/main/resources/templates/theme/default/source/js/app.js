@@ -65,6 +65,7 @@
             htmArr.push('<div class="option-item '+ ele.class +'" title="'+ele.title+'"> <i class="' + ele.icon+'"></i> </div> ');
         }
 
+        htmArr.push('<div class="option-item scroll-progress" title="滚动条进度"><span id="progress-line" class="progress-line"></span><span id="progress-value">0%</span></div> ');
         $options.append(htmArr.join(""));
 
         let $iframe = $('<div id="modal-iframe" class="iziModal light"></div>');
@@ -237,6 +238,30 @@
                     }
                 });
             });
+
+
+            // 复制代码
+            let $highlightArr = $(".highlight");
+            $highlightArr.each(function(index, domEle) {
+                let $highlight = $(domEle);
+                let $table = $highlight.find("table");
+                let copyBtn = $("<span class='copy-btn'>复制</span>");
+                $highlight.append(copyBtn);
+                let clipboard = new ClipboardJS(copyBtn.get(0), {
+                    text: function(trigger) {
+                        let html = $table.find("td.code pre").html();
+                        html = html.replace(/<br>/g, "\r\n");
+                        return $(html).text();
+                    }
+                });
+
+                clipboard.on('success', function(e) {
+                    layer.msg("复制成功");
+                    e.clearSelection();
+                });
+            });
+
+
         }
     };
 
@@ -265,10 +290,37 @@
         }
     };
 
+    //定义计算滚动进度的函数
+    const scrollIndicator = function () {
+        let $window = $(window);
+        let $progressLine = $("#progress-line");
+        let $progressValue = $("#progress-value");
+        let winTop = $window.scrollTop(), docHeight = $(document).height(), winHeight = $(window).height();
+        calcProcess(winTop, docHeight, winHeight, $progressLine, $progressValue);
+
+        $window.on('scroll', function() {
+            let winTop = $window.scrollTop(), docHeight = $(document).height(), winHeight = $(window).height();
+            calcProcess(winTop, docHeight, winHeight, $progressLine, $progressValue);
+        });
+    };
+    function calcProcess(winTop, docHeight, winHeight, progressLine, progressValue) {
+        let scrolled;
+        let denominator = docHeight - winHeight;
+        if (denominator > 0) {
+            scrolled =  (winTop / denominator) * 100;
+        } else {
+            scrolled = 100;
+        }
+        progressValue.html(parseInt(scrolled + "") + '%');
+    }
+
     const pjaxEvent = function() {
         $(document).pjax('a[data-pjax]', '#wrap', {fragment: '#wrap', timeout: 8000});
         $(document).on('pjax:send', function() { NProgress.start();});
         $(document).on('pjax:complete',   function(e) {
+
+            //添加的代码
+            scrollIndicator();
             circleMagic();
             contentWayPoint();
             dynamicEvent();
@@ -284,6 +336,7 @@
     };
 
     $(function() {
+        scrollIndicator();
         themModeEvent();
         optionEvent();
         circleMagic();
@@ -296,4 +349,13 @@
         }
         loadResource();
     });
+
+
+
+
+
+
+
+
+
 })(jQuery);

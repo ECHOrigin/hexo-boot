@@ -17,7 +17,7 @@ public enum ConfigEnum {
     INSTALL_TIME("install_time", "","安装时间"),
     BLOG_NAME("blog_name", "","博客名称"),
     HOME_PAGE("home_page", "","博客首页"),
-    DESCRIPTION("description", "月光中的污点,MoonlightL","博客描述"),
+    DESCRIPTION("description", "zjc课程系统,szs","博客描述"),
     KEYWORDS("keywords", "技术博客","博客关键字"),
     LOGO_URL("logo_url", "", "Logo 地址"),
     FAVICON_URL("favicon_url", "", "Favicon 地址"),
