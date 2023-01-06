@@ -102,6 +102,7 @@ public class LoginController extends BaseController {
                     GlobalExceptionEnum.ERROR_VERIFY_CODE_WRONG.getMessage() + ", 剩余 " + remainNum + " 次尝试机会");
         }
 
+        //移除掉那些存在session中不在用的数据
         session.removeAttribute(HexoConstant.CAPTCHA);
 
         User user = this.userService.findUserByUsername(request.getUsername().trim());
@@ -111,6 +112,7 @@ public class LoginController extends BaseController {
                     HexoExceptionEnum.ERROR_USER_NOT_EXIST.getMessage() + ", 剩余 " + remainNum + " 次尝试机会");
         }
 
+        //字符串密码md5加密
         String md5Pwd = DigestUtils.md5DigestAsHex(request.getPassword().trim().getBytes());
         if (!user.getPassword().equals(md5Pwd)) {
             int remainNum = this.checkLoginError(httpServletRequest);
@@ -128,6 +130,7 @@ public class LoginController extends BaseController {
             ExceptionUtil.throwEx(HexoExceptionEnum.ERROR_STATE_WRONG);
         }
 
+        //设置session值的，HexoConstant.CURRENT_USER是名称，user是你要保存的对象
         session.setAttribute(HexoConstant.CURRENT_USER, user);
 
         String ipAddr = RequestUtil.getIpAddr(httpServletRequest);
