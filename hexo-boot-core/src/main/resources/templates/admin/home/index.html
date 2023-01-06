@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>ZJC 课程系统</title>
+    <title>ZJC 课程后台管理系统</title>
     <!-- Icons -->
     <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
     <link rel="shortcut icon" th:href="@{${#servletContext.getAttribute('configMap')['favicon_url']}}">
@@ -115,12 +115,12 @@
                     <ul class="nav-users push">
                         <li>
                             <a href="javascript:void(0)">
-                                <div class="font-w400 font-size-xs text-muted">博客名称：[[${#servletContext.getAttribute('configMap')['blog_name']}]]</div>
+                                <div class="font-w400 font-size-xs text-muted">系统名称：[[${#servletContext.getAttribute('configMap')['blog_name']}]]</div>
                             </a>
                         </li>
                         <li>
                             <a th:href="@{${#servletContext.getAttribute('configMap')['home_page']}}" target="_blank">
-                                <div class="font-w400 font-size-xs text-muted">博客主页：[[${#servletContext.getAttribute('configMap')['home_page']}]]</div>
+                                <div class="font-w400 font-size-xs text-muted">系统主页：[[${#servletContext.getAttribute('configMap')['home_page']}]]</div>
                             </a>
                         </li>
                         <li>
@@ -141,7 +141,7 @@
             <!-- BLOG PROFILE -->
             <div class="block pull-r-l">
                 <div class="block-header bg-body-light">
-                    <h3 class="block-title"><i class="fa fa-fw fa-user-o font-size-default mr-5"></i>博主信息</h3>
+                    <h3 class="block-title"><i class="fa fa-fw fa-user-o font-size-default mr-5"></i>教师信息</h3>
                     <button type="button" class="btn-block-option" data-url="/admin/siteConfig/basicUI.html" data-name="基础配置">
                         <i class="fa fa-pencil"></i>
                     </button>
@@ -153,7 +153,7 @@
                     <ul class="nav-users push">
                         <li>
                             <a href="javascript:void(0)">
-                                <div class="font-w400 font-size-xs text-muted">博主名称：[[${#servletContext.getAttribute('configMap')['blog_author']}]]</div>
+                                <div class="font-w400 font-size-xs text-muted">教师名称：[[${#servletContext.getAttribute('configMap')['blog_author']}]]</div>
                             </a>
                         </li>
                         <li>
@@ -185,7 +185,7 @@
             <div class="block pull-r-l">
                 <div class="block-header bg-body-light">
                     <h3 class="block-title">
-                        <i class="fa fa-fw fa-bars font-size-default mr-5"></i>博客元数据
+                        <i class="fa fa-fw fa-bars font-size-default mr-5"></i>系统元数据
                     </h3>
                     <div class="block-options">
                         <button type="button" class="btn-block-option" data-toggle="block-option" data-action="content_toggle"></button>
