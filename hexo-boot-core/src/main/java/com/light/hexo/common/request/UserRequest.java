@@ -64,7 +64,7 @@ public class UserRequest extends BaseRequest<User> {
     private Boolean state;
 
     /**
-     * 角色 1：博主 2：用户
+     * 角色 1：教师 2：用户
      */
     private Integer role;
 

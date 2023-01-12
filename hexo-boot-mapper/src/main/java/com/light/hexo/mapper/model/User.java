@@ -64,7 +64,7 @@ public class User implements Serializable {
     private Boolean state;
 
     /**
-     * 角色 1：博主 2：用户
+     * 角色 1：教师 2：用户
      */
     private Integer role;
 
@@ -75,6 +75,6 @@ public class User implements Serializable {
     private LocalDateTime updateTime;
 
     public String getRoleName() {
-        return this.role.equals(1) ? "博主" : "用户";
+        return this.role.equals(1) ? "教师" : "用户";
     }
 }
