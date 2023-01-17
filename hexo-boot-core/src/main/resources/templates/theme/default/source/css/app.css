@@ -109,7 +109,11 @@ body {
     font-family: "Play", "Open sans", "Microsoft YaHei", sans-serif;
     font-size: 14px;
     line-height: 21px;
+
+    cursor: url(https://www.qcgzxw.cn/normal.cur), default;
 }
+
+a:hover{cursor:url(https://www.qcgzxw.cn/link.cur), pointer;}
 
 p {
     line-height: 1.7em;
