@@ -109,10 +109,10 @@ body {
     font-family: "Play", "Open sans", "Microsoft YaHei", sans-serif;
     font-size: 14px;
     line-height: 21px;
-
+    /** 普通指针样式**/
     cursor: url(https://www.qcgzxw.cn/normal.cur), default;
 }
-
+/** 链接指针样式**/
 a:hover{cursor:url(https://www.qcgzxw.cn/link.cur), pointer;}
 
 p {
